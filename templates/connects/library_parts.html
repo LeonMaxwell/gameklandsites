@@ -1,0 +1,28 @@
+{% extends "union/union.html" %}
+
+{% block title %}
+<title>{{prTitle}} - Игровой клан Красный Лев</title>
+{% endblock title %}
+
+{% block content %}
+     <div class="bg-cont">
+        <div class="sec-game">
+            <a href="{% url 'LibraryGames' %}">
+                <div class="roundGame"></div>
+                {% for foo in selectGame %}
+                    <h1>{{ foo.name_section }}</h1>
+                    <p>{{ foo.about_section }}</p>
+                {% endfor %}
+            </a>
+        </div>
+        <div class="sec-klan">
+            <a href="{% url 'LibraryAboutKlan' %}">
+                <div class="roundKlan"></div>
+                {% for foo in selectKlan %}
+                    <h1>{{ foo.name_section }}</h1>
+                    <p>{{ foo.about_section }}</p>
+                {% endfor %}
+            </a>
+        </div>
+    </div>
+{% endblock content %}

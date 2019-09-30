@@ -1,0 +1,78 @@
+@import "media.css";
+@import "stylesheet.css";
+
+.bg-cont{
+    width: 100%;
+    height: 100%;
+    background-image: url(/media/battlefield_media/1451973816182169424.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.sec-game, .sec-klan{
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 65%;
+    top: 15%;
+    left: 23%;
+    background: url(../img/marcador.png) center center;
+    background-size: cover;
+    margin: 0 17% 5% 0;
+}
+
+.sec-game a, .sec-klan a{
+    display: block;
+    height: 100%;
+    z-index: 2;
+    text-decoration: none;
+}
+
+.sec-game a h1, .sec-klan a h1{
+    color: #25A619;
+    font-family: 'fleischmann_gotischcregular';
+    font-size: 1.7em;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.sec-game a p, .sec-klan a p{
+    font-family: 'mr_ArdaghG';
+    color: #ff4e00;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.roundGame{
+    margin-top: 10%;
+    margin-left: 15%;
+    display: inline-block;
+    width: 70%;
+    height: 33%;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    background-image: url("../../../../media/library_media/a722760a.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.roundKlan{
+    margin-top: 10%;
+    margin-left: 15%;
+    display: inline-block;
+    width: 70%;
+    height: 33%;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    background-image: url("../../../../media/library_media/PqMJYHj3jvQ.jpg");
+    background-size: cover;
+    background-position: center;
+}
+

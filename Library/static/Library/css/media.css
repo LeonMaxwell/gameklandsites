@@ -1,0 +1,18 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
+    .sec-game, .sec-klan {
+        width: 40%;
+        height: 45%;
+        margin: 0 1% 5% 9%;
+        left: -6%;
+        top: 7%;
+    }
+
+    .sec-game a h1, .sec-klan a h1{
+        font-size: 1.3em;
+        margin-top: 5%;
+    }
+
+    .sec-game a p, .sec-klan a p{
+        font-size: 1em;
+    }
+}
