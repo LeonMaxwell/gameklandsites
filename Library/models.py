@@ -2,12 +2,18 @@ from django.db import models
 
 
 # Create your models here.
+from django.utils import timezone
+
 
 class AboutLibrary(models.Model):
     id_room = 4
     name_room = models.CharField(max_length=20)
     about_room = models.TextField(max_length=56)
     image_room = models.ImageField(upload_to='library_media')
+
+    class Meta:
+        verbose_name = 'О библиотеке'
+        verbose_name_plural = 'О библиотеке'
 
     def __str__(self):
         return self.name_room
@@ -18,42 +24,52 @@ class SectionInLibraryAboutGames(models.Model):
     about_section = models.TextField(max_length=56)
     image_section = models.ImageField(upload_to='library_media')
 
+    class Meta:
+        verbose_name = 'Секция игр в Библиотеке'
+        verbose_name_plural = 'Секция игр в Библиотеке'
+
     def __str__(self):
         return self.name_section
 
 
 class ContentsInSectionGames(models.Model):
     name_game = models.CharField(max_length=20)
-    brief_information_for_games = models.TextField(max_length=56)
     image_games = models.ImageField(upload_to='library_media')
+
+    class Meta:
+        verbose_name = 'О игре'
+        verbose_name_plural = 'О играх'
+        ordering = ('-name_game',)
 
     def __str__(self):
         return self.name_game
 
+
 class InfoGames(models.Model):
-    name_games = models.ForeignKey(ContentsInSectionGames, on_delete=models.CASCADE, default='',editable=True)
-    heading_name_info = models.CharField(max_length=20)
-    pictures_for_info = models.ImageField(upload_to='library_media', default='',editable=True)
+    name_games = models.ForeignKey(ContentsInSectionGames, on_delete=models.CASCADE, default='',editable=True, verbose_name='Название игры')
+    article_name_info = models.CharField(max_length=20, verbose_name='Название статьи игры')
+    pictures_for_info = models.ImageField(upload_to='library_media', default='',editable=True, verbose_name='Картинка статьи')
+    publish = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
+    slug = models.SlugField(max_length=250, unique_for_date='publish', default='', verbose_name='Слог статьи')
+    update = models.DateTimeField(auto_now=True, verbose_name='Дата обновления статьи')
+
+    class Meta:
+        verbose_name = 'Статья о игре'
+        verbose_name_plural = 'Статьи о игре'
+        ordering = ('-article_name_info',)
 
     def __str__(self):
-        return self.heading_name_info
+        return self.article_name_info
 
-class BaseInfoGame(models.Model):
-
-    name_game = models.ForeignKey(ContentsInSectionGames, on_delete=models.CASCADE, default='',editable=True)
-    section_name_info = models.ForeignKey(InfoGames, on_delete=models.CASCADE, default='', editable=True)
-    head_name = models.CharField(max_length=50, default='', editable=True)
-    info_section_on_games = models.TextField(max_length=500, default='', editable=True)
-    picture_section_on_games = models.ImageField(upload_to='library_media', default='', editable=True)
-    url_video = models.CharField(max_length=50, default='', editable=True)
-
-    def __str__(self):
-        return self.head_name
 
 class SectionInLibraryAboutKlan(models.Model):
     name_section = models.CharField(max_length=20)
     about_section = models.TextField(max_length=56)
     image_section = models.ImageField(upload_to='library_media')
+
+    class Meta:
+        verbose_name = 'Секция клана в Библиотеке'
+        verbose_name_plural = 'Секция клана в Библиотеке'
 
     def __str__(self):
         return self.name_section
