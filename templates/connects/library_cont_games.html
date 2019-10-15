@@ -6,5 +6,19 @@
 
 {% block content %}
     <div class="bg-cont">
+    <div class="owl-carousel owl-theme group-item group">
+        {% for game in selectGame %}
+            <a href="{% url 'LibraryGamesArticle' name_game=game.name_game %}"><div class="item">
+                    <h1>{{ game.name_game }}</h1>
+                    <img src="{{ game.image_games.url }}" alt="{{ game.name_game }}_img"/>
+                    {% for key, value in dict_count.items %}
+                        {% if game == key %}
+                            <p>{{ value }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
     </div>
 {% endblock content %}

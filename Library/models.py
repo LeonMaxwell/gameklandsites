@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -39,7 +40,7 @@ class ContentsInSectionGames(models.Model):
     class Meta:
         verbose_name = 'О игре'
         verbose_name_plural = 'О играх'
-        ordering = ('-name_game',)
+        ordering = ('name_game',)
 
     def __str__(self):
         return self.name_game
