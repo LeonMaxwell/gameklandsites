@@ -1,0 +1,61 @@
+html {
+    background-color: rgba(195, 201, 208, 0.66);
+}
+.head a img{
+    margin-left: -15%;
+}
+
+.head #irg{
+    width: 40%;
+    height: 40%;
+    float: right;
+}
+
+.head h2, .head p{
+    padding-top: 2%;
+}
+
+hr{
+   margin-top: 18%;
+}
+
+.body h3, .body #text_body{
+    text-align: center;
+}
+
+.body .sub_body p{
+    margin-top: 6%;
+}
+
+.body .sub_body h4{
+    text-align: center;
+    margin-top: 7%;
+}
+
+.body .sub_body img{
+    width: 20%;
+    height: 20%;
+    float: right;
+    margin-top: 1%;
+}
+
+.gallery h3,h4{
+    text-align: center;
+}
+
+
+.gallery .video-gallery{
+    padding-top: 5%;
+    margin-bottom: -9%;
+    padding-left: 4%;
+}
+
+.gallery .image-gallery{
+    background-size: cover;
+    margin-bottom: -9%;
+    padding-left: 4%;
+}
+
+.gallery .image-gallery img{
+    width: 90%;
+}

@@ -39,7 +39,7 @@
 }
 
 .sec-game a p, .sec-klan a p{
-    font-family: 'mr_ArdaghG';
+    font-family: 'mr_ardaghgbold';
     color: #ff4e00;
     font-size: 1.3em;
     text-align: center;
@@ -76,3 +76,72 @@
     background-position: center;
 }
 
+.group {
+    display: block;
+    padding-top: 15%;
+}
+
+.group .item{
+    width: 50%;
+    margin-left: 25%;
+    height: 50%;
+}
+
+.group a{
+    text-decoration: none;
+}
+
+.group .item h1{
+    color: #ff4e00;
+    font-family: 'mr_ardaghgbold';
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.group .item img{
+    width: 30%;
+    height: 40%;
+}
+
+.group .item p{
+    color: #25A619;
+    font-family: 'mr_ardaghgbold';
+    font-size: 2em;
+    text-align: center;
+}
+
+.block_list_article{
+    position: absolute;
+    height: 70%; /* высота нашего блока */
+    width: 60%; /* ширина нашего блока */
+    overflow-y: scroll; /* прокрутка по вертикали */
+    margin-top: 12%;
+    margin-left: 20%;
+}
+
+.block_list_article #item_article{
+    width: 17%;
+    height: 25%;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+    margin-left: 5%;
+    margin-right: 3%;
+    margin-top: 3%;
+}
+
+.block_list_article #item_article div{
+    position: absolute;
+    width: 17%;
+    height: 5%;
+    background: rgba(0000, 0, 0, 0.7);
+    margin-top: 11%;
+    text-align: center;
+}
+
+.block_list_article #item_article div p{
+    font-family: 'mr_ardaghgbold';
+    font-size: 1.2em;
+    color: #ff4e00;
+    margin-top: -3%;
+}

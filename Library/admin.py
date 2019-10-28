@@ -4,6 +4,7 @@ from .models import *
 admin.site.register(AboutLibrary)
 admin.site.register(SectionInLibraryAboutGames)
 
+
 @admin.register(InfoGames)
 class InfoGamesAdmin(admin.ModelAdmin):
     list_display = ('article_name_info', 'name_games',  'slug', 'publish', 'update')
@@ -12,6 +13,7 @@ class InfoGamesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('article_name_info', )}
     date_hierarchy = 'publish'
     ordering = ('article_name_info', 'name_games', 'publish')
+
 
 admin.site.register(ContentsInSectionGames)
 admin.site.register(SectionInLibraryAboutKlan)

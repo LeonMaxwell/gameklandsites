@@ -20,6 +20,19 @@ class AboutLibrary(models.Model):
         return self.name_room
 
 
+class SectionInLibraryAboutKlan(models.Model):
+    name_section = models.CharField(max_length=20)
+    about_section = models.TextField(max_length=56)
+    image_section = models.ImageField(upload_to='library_media')
+
+    class Meta:
+        verbose_name = 'Секция клана в Библиотеке'
+        verbose_name_plural = 'Секция клана в Библиотеке'
+
+    def __str__(self):
+        return self.name_section
+
+
 class SectionInLibraryAboutGames(models.Model):
     name_section = models.CharField(max_length=20)
     about_section = models.TextField(max_length=56)
@@ -61,19 +74,3 @@ class InfoGames(models.Model):
 
     def __str__(self):
         return self.article_name_info
-
-
-class SectionInLibraryAboutKlan(models.Model):
-    name_section = models.CharField(max_length=20)
-    about_section = models.TextField(max_length=56)
-    image_section = models.ImageField(upload_to='library_media')
-
-    class Meta:
-        verbose_name = 'Секция клана в Библиотеке'
-        verbose_name_plural = 'Секция клана в Библиотеке'
-
-    def __str__(self):
-        return self.name_section
-
-
-

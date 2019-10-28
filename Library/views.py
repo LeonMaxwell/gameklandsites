@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from django.shortcuts import render
 
 from BattlleField.models import AboutBattleField
@@ -7,6 +9,8 @@ from PoolOfMemory.models import AboutPoolOfMemory
 from RoundTable.models import AboutRoundTable
 from .models import AboutLibrary, SectionInLibraryAboutGames, SectionInLibraryAboutKlan, ContentsInSectionGames, \
     InfoGames
+
+from article.models import *
 
 
 def library(request):
@@ -34,7 +38,8 @@ def library(request):
 def content(request):
     data_selection = ContentsInSectionGames.objects.all()
     inf_g = InfoGames.objects.all()
-    count = {inf_g[i].name_games: 'Кол-во статей: '+str(inf_g.filter(name_games=inf_g[i].name_games).count()) for i in range(inf_g.count())}
+    count = {inf_g[i].name_games: 'Кол-во статей: ' + str(inf_g.filter(name_games=inf_g[i].name_games).count()) for i in
+             range(inf_g.count())}
     if len(data_selection) > len(count):
         for i in data_selection:
             if i in count:
@@ -88,3 +93,85 @@ def content_games(request, name_game):
 
 def aboutKlan(request):
     pass
+
+
+def article(request, name_game, name_article):
+    content_dict = dict()
+    data_head = HeaderConstructorArticleGames.objects.filter(name_article__slug=name_article)
+    data_body = BodyConstructorArticleGame.objects.filter(name_article__slug=name_article)
+    data_sub_body = SubBodyConstructorArticleGame.objects.filter(body_article__name_article__slug=name_article)
+    data_content = ContentSubBodyConstructorArticleGame.objects. \
+        filter(sub_name_article__body_article__name_article__slug=name_article)
+
+    data_video_gallery = InfoCreateGalleryVideo.objects.filter(name_article__slug=name_article)
+    data_image_gallery = ImageGallery.objects.filter(name_article__slug=name_article)
+
+    for data in data_content:
+        data.sub_name_article.body_article
+
+
+    context = {
+        'name_game': name_game,
+        'name_article': name_article,
+        'name_head': data_head,
+        'name_body': data_body,
+        'name_sub_body': data_sub_body,
+        'name_content': data_content,
+        'video_gallery': data_video_gallery,
+        'image_gallery': data_image_gallery,
+    }
+    return render(request, 'article/article.html', context)
+
+
+"""
+      Слишком багоая идея
+
+      count_row = []
+      count_col = []
+      value_row = []
+      value_col = dict()
+      value_cont = []
+      char_cont = []
+      other_content = dict()
+      dictInTable = dict()
+      dictContTable = nested_dict(3, ContentCreateTable)
+      dictCont = dict()
+      dictCont2 = dict()
+
+      if data.type_content == 'TABLE': 
+          for row in range(data.table_content.count_row):
+              for col in range(data.table_content.count_col):
+                  dictInTable = dict({i.content_table.cell_text: i.content_table for i in
+                                      data_table.filter(info_table=
+                                                        data.table_content.pk)})
+          count_row = [i + 1 for i in range(data.table_content.count_row)]
+          count_col = [i + 1 for i in range(data.table_content.count_col)]
+          for key, count in dictInTable.items():
+              if count.number_col > len(count_col):
+                  other_content.update({key: count})
+
+          for row in count_row:
+              for col in count_col:
+                  for key, value in dictInTable.items():
+                      if value.number_row == row:
+                          if value.number_col == col:
+                              dictContTable[row][col][key] = value
+              if other_content:
+                  for key, value in other_content.items():
+                      if value.number_row == row:
+                          dictContTable[row][value.number_col][key] = value
+          for key in dictContTable.keys():
+              value_row.append(key)
+              value_col.update({key: []})
+              for col in dictContTable[key].keys():
+                  if col > len(count_col):
+                      pass
+                  else:
+                      value_col[key].append(col)
+                  for key2, value2 in dictContTable[key][col].items():
+                      if value2.number_col > len(count_col):
+                          dictCont2.update({key2: value2})
+                      else:
+                          dictCont.update({key2: value2})
+      if data.type_content == "LIST":
+          pass"""

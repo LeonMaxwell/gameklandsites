@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('', views.library, name='Library'),
     path('games/', views.content, name='LibraryGames'),
-    path('games/<str:name_game>', views.content_games, name='LibraryGamesArticle'),
+    path('games/<str:name_game>/', views.content_games, name='LibraryGamesArticle'),
+    path('games/<str:name_game>/<str:name_article>', views.article, name='ArticleGames'),
     path('aboutKlan/', views.aboutKlan, name='LibraryAboutKlan'),
 ]

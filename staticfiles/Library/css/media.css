@@ -15,4 +15,47 @@
     .sec-game a p, .sec-klan a p{
         font-size: 1em;
     }
+
+    .group{
+        padding-top: 70%;
+    }
+
+    .group .item{
+        width: 75%;
+        margin-left: 12%;
+    }
+
+    .group .item h1{
+        font-size: 1.5em;
+    }
+
+    .group .item img{
+        height: 25%;
+    }
+
+    .group .item p{
+        font-size: 1em;
+    }
+
+    .block_list_article {
+        margin-top: 30%;
+        margin-left: 10%;
+        width: 100%;
+    }
+
+    .block_list_article #item_article{
+        width: 30%;
+        height: 15%;
+        margin-right: 5%;
+        margin-top: 7%;
+    }
+
+    .block_list_article #item_article div{
+        margin-top: 13%;
+        width: 30%;
+    }
+
+    .block_list_article #item_article div p{
+        margin-top: -1%;
+    }
 }

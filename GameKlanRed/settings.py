@@ -24,7 +24,7 @@ SECRET_KEY = 'mc!pjzw+&f&fqd45njmf-y)z2k_i(fzk+k%aau(71x6)rf!vr%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','http://cf00b21e.ngrok.io']
 
 # Application definition
 
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wrapper.apps.WrapperConfig',
-    'union.apps.UnionConfig'
+    'union.apps.UnionConfig',
+    'article.apps.ArticleConfig'
 ]
 
 MIDDLEWARE = [
@@ -128,5 +129,6 @@ MEDIA_URL = '/media/'
 STATIC_DIRS = (
     os.path.join(BASE_DIR, 'wrapper/static'),
     os.path.join(BASE_DIR, 'union/static'),
+    os.path.join(BASE_DIR, 'article/static'),
     os.path.join(BASE_DIR, 'BattlleField/static')
 )

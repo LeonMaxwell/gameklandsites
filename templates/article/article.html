@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'article/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'article/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'article/css/owl.theme.default.min.css' %}" type="text/css">
+</head>
+<body>
+    {% block content %}
+        <div class="head">
+            {% for head in name_head %}
+            <a href="#" onclick="history.back();return false;" style="float: left"><img src="https://img.icons8.com/ios-filled/50/000000/back.png"></a>
+            <h1 style="text-align: center">{{ head.name_article }}</h1>
+            <img src="{{ head.head_image.url }}" alt="{{ head.name_header_article }}_img" id="irg"/>
+            <p>{{ head.about_header_article }}</p>
+            <h2>Оглавление</h2>
+            {% for body in name_body %}
+                <ul>
+                   <li><a href="#{{ body.name_body_article }}">{{ body.name_body_article }}</a>
+                   {% for sub in name_sub_body %}
+                   <ul>
+                        {% if sub.body_article.name_body_article == body.name_body_article %}
+                            <li><a href="#{{ sub.sub_name_body_article }}">{{ sub.sub_name_body_article }}</a> </li>
+                        {% endif %}
+                   </ul>
+                   {% endfor %}
+                   </li>
+
+                </ul>
+                {% endfor %}
+                <ul>
+                    <li><a href="#gallery">Галлерея</a></li>
+                </ul>
+            {% endfor %}
+        </div>
+        <hr>
+        <br>
+        <div class="body">
+            {% for id in name_body %}
+            <h3 id="{{ id.name_body_article }}">{{ id.name_body_article }}</h3>
+            <p>{{ id.about_body_article }}</p>
+            <div class="sub_body">
+                 {% for foo in name_sub_body %}
+                    {% if foo.body_article.name_body_article == id.name_body_article %}
+                        <h4 id="{{ foo.sub_name_body_article }}">{{ foo.sub_name_body_article }}</h4>
+                        <img src="{{ foo.sub_body_image.url }}" alt="{{ foo.sub_name_body_article }}_img"/>
+                        {% for cont in name_content %}
+                            {% if cont.sub_name_article.sub_name_body_article == foo.sub_name_body_article %}
+                                <p>{{ cont.text_content }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                <hr>
+            </div>
+         {% endfor %}
+
+        </div>
+
+        <div class="gallery">
+            <h3 id="gallery">Галлерея</h3>
+            <h4>Видео</h4>
+            <div class="video-gallery owl-carousel owl-theme">
+            {% for video in video_gallery %}
+                    <div id="item">
+                        <iframe width="500" height="300" src="https://www.youtube.com/embed/{{ video.code_video }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
+            {% endfor %}
+            </div>
+            <hr>
+            <h4>Картинки</h4>
+            <div class="image-gallery owl-carousel owl-theme">
+                {% for img in image_gallery %}
+                    <img src="{{ img.image_input.url }}"/>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock content %}
+<script src="{% static 'article/js/jquery-min-3.4.1.js' %}"></script>
+<script src="{% static 'article/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'article/js/script.js' %}"></script>
+</body>
+
+</html>
+
+
+<!-- {% if cont.type_content == 'TABLE' %}
+                                <table>
+                                    <caption>{{ cont.table_content.name_table }}</caption>
+                                     <tbody>
+                                        {% for row in rows %}
+                                            <tr>
+                                                {% for key, len in col.items %}
+                                                    {% if key == row %}
+                                                        {% for col_count in len %}
+                                                            {% for key1, content in cont1.items %}
+                                                                {% if content.number_row == row %}
+                                                                    {% if content.number_col == col_count %}
+                                                                        {% if content.cell_size >= 2 %}
+                                                                            <th colspan="{{ content.cell_size }}">{{ key1 }}</th>
+                                                                        {% elif row == 1 %}
+                                                                            <th rowspan="2">{{ key1 }}</th>
+                                                                        {% elif col_count == 1 %}
+                                                                            <th style="text-align: left">{{ key1 }}</th>
+                                                                        {% else %}
+                                                                            <td style="text-align: center">{{ key1 }}</td>
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </tr>
+                                            {% if cont2 and row == 1 %}
+                                                <tr>
+                                                    {% for key, content in cont2.items %}
+                                                        {% if content.number_row == row %}
+                                                            {% if content.number_row == 1 %}
+                                                                <th>{{ key }}</th>
+                                                            {% else %}
+                                                                <td>{{ key }}</td>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                     </tbody>
+                                </table>
+                            {% endif %}
+                            {% if cont.type_content == 'LIST' %}
+                            {% endif %} -->

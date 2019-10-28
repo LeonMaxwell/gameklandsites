@@ -7,7 +7,7 @@
     <div class="bg-cont">
         <div class="block_list_article">
             {% for name_article in article_info %}
-                <a href="#"><div id="item_article" style="background-image: url({{ name_article.pictures_for_info.url }});">
+                <a href="{% url 'ArticleGames' name_game=name_article.name_games.name_game name_article=name_article.slug %}"><div id="item_article" style="background-image: url({{ name_article.pictures_for_info.url }});">
                     <div><p>{{ name_article }}</p></div>
                 </div></a>
             {% endfor %}
