@@ -106,9 +106,6 @@ def article(request, name_game, name_article):
     data_video_gallery = InfoCreateGalleryVideo.objects.filter(name_article__slug=name_article)
     data_image_gallery = ImageGallery.objects.filter(name_article__slug=name_article)
 
-    for data in data_content:
-        data.sub_name_article.body_article
-
 
     context = {
         'name_game': name_game,
