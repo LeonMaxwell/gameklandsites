@@ -1,19 +1,49 @@
 html {
     background-color: rgba(195, 201, 208, 0.66);
 }
-.head a img{
-    margin-left: -15%;
+
+.head{
+    width: 100%;
+    margin-top: -1.6%;
+    margin-left: -2%;
+}
+
+#head_main{
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    background-color: black;
+    color: white;
+    margin-top: -1%;
+}
+
+#head_main a img{
+    padding-left: 30%;
+    padding-top: 35%;
 }
 
 .head #irg{
     width: 40%;
     height: 40%;
     float: right;
+    padding-top: 5%;
 }
 
-.head h2, .head p{
+.head h2{
     padding-top: 2%;
+    padding-left: 2%;
 }
+
+.head h2{
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+.head ul{
+
+    padding-left: 2%;
+}
+
 
 hr{
    margin-top: 18%;

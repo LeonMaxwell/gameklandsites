@@ -12,8 +12,10 @@
     {% block content %}
         <div class="head">
             {% for head in name_head %}
-            <a href="#" onclick="history.back();return false;" style="float: left"><img src="https://img.icons8.com/ios-filled/50/000000/back.png"></a>
-            <h1 style="text-align: center">{{ head.name_article }}</h1>
+            <div id="head_main">
+                <a href="#" onclick="history.back();return false;" style="float: left"><img src="{% static 'article/img/iconfinder-icon.svg' %}"></a>
+                <h1 style="text-align: center">{{ head.name_article }}</h1>
+            </div>
             <img src="{{ head.head_image.url }}" alt="{{ head.name_header_article }}_img" id="irg"/>
             <p>{{ head.about_header_article }}</p>
             <h2>Оглавление</h2>
@@ -38,6 +40,7 @@
         </div>
         <hr>
         <br>
+
         <div class="body">
             {% for id in name_body %}
             <h3 id="{{ id.name_body_article }}">{{ id.name_body_article }}</h3>
