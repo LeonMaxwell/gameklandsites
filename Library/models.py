@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 from django.utils import timezone
 
@@ -60,9 +59,11 @@ class ContentsInSectionGames(models.Model):
 
 
 class InfoGames(models.Model):
-    name_games = models.ForeignKey(ContentsInSectionGames, on_delete=models.CASCADE, default='',editable=True, verbose_name='Название игры')
+    name_games = models.ForeignKey(ContentsInSectionGames, on_delete=models.CASCADE, default='', editable=True,
+                                   verbose_name='Название игры')
     article_name_info = models.CharField(max_length=20, verbose_name='Название статьи игры')
-    pictures_for_info = models.ImageField(upload_to='library_media', default='',editable=True, verbose_name='Картинка статьи')
+    pictures_for_info = models.ImageField(upload_to='library_media', default='', editable=True,
+                                          verbose_name='Картинка статьи')
     publish = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
     slug = models.SlugField(max_length=250, unique_for_date='publish', default='', verbose_name='Слог статьи')
     update = models.DateTimeField(auto_now=True, verbose_name='Дата обновления статьи')
@@ -74,3 +75,15 @@ class InfoGames(models.Model):
 
     def __str__(self):
         return self.article_name_info
+
+
+class ContentAboutKlan(models.Model):
+    name_content_about_klan = RichTextField(verbose_name='Имя заголовка')
+    text_content_about_klan = RichTextField(blank=True, null=True, verbose_name='Текст заголовка')
+
+    class Meta:
+        verbose_name = 'Информация о клане'
+        verbose_name_plural = 'Информации о клане'
+
+    def __str__(self):
+        return self.name_content_about_klan

@@ -1,3 +1,5 @@
+from ckeditor.fields import RichTextField, RichTextFormField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
@@ -83,7 +85,7 @@ class ImageGallery(models.Model):
 
 class ContentSubBodyConstructorArticleGame(models.Model):
     sub_name_article = models.ForeignKey(SubBodyConstructorArticleGame, default='', on_delete=models.CASCADE)
-    text_content = models.TextField(default='', null=True, blank=True)
+    text_content = RichTextField(default='', null=True, blank=True)
     publish = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
     update = models.DateTimeField(auto_now=True, verbose_name='Дата обновления статьи')
 

@@ -3,6 +3,7 @@ from .models import *
 
 admin.site.register(AboutLibrary)
 admin.site.register(SectionInLibraryAboutGames)
+admin.site.register(ContentAboutKlan)
 
 
 @admin.register(InfoGames)

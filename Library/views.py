@@ -1,6 +1,8 @@
 from collections import defaultdict
 
+from django.http import request
 from django.shortcuts import render
+from django.views import View
 
 from BattlleField.models import AboutBattleField
 from Dungeon.models import AboutDungeon
@@ -8,7 +10,7 @@ from MainHall.models import AboutMainHall
 from PoolOfMemory.models import AboutPoolOfMemory
 from RoundTable.models import AboutRoundTable
 from .models import AboutLibrary, SectionInLibraryAboutGames, SectionInLibraryAboutKlan, ContentsInSectionGames, \
-    InfoGames
+    InfoGames, ContentAboutKlan
 
 from article.models import *
 
@@ -92,7 +94,26 @@ def content_games(request, name_game):
 
 
 def aboutKlan(request):
-    pass
+    content_about_klan = ContentAboutKlan.objects.all()
+    content_battlefield = AboutBattleField.objects.all()
+    content_dungeon = AboutDungeon.objects.all()
+    content_pool_of_memory = AboutPoolOfMemory.objects.all()
+    content_round_table = AboutRoundTable.objects.all()
+    content_main_hall = AboutMainHall.objects.all()
+    content_library = AboutLibrary.objects.all()
+
+    contaxt = {
+        "prTitle": "Библиотека",
+        "battlefield": content_battlefield,
+        "dungeon": content_dungeon,
+        "pool_of_memory": content_pool_of_memory,
+        "round_table": content_round_table,
+        "main_hall": content_main_hall,
+        "data": content_library,
+        'content': content_about_klan
+    }
+
+    return render(request, 'connects/library_cont_about_klan.html', contaxt)
 
 
 def article(request, name_game, name_article):
@@ -105,7 +126,6 @@ def article(request, name_game, name_article):
 
     data_video_gallery = InfoCreateGalleryVideo.objects.filter(name_article__slug=name_article)
     data_image_gallery = ImageGallery.objects.filter(name_article__slug=name_article)
-
 
     context = {
         'name_game': name_game,

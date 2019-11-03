@@ -1,0 +1,76 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
+    .head p{
+        padding-top: 0;
+    }
+
+    .head #irg{
+        padding-top: 20%;
+        align-content: center;
+        float: none;
+        width: 100vw;
+
+    }
+
+    .head ul{
+    padding-left: 6%;
+    }
+
+    .body .sub_body img{
+        width: 100vw;
+        padding-top: 0;
+        align-content: center;
+        float: none;
+    }
+}
+
+
+
+@media only screen and (min-width : 1824px) {
+    #head_main{
+        width: 110vw;
+        margin-top: -1%;
+        height: 15vh;
+    }
+    #head_main h1{
+        margin-top: 3%;
+        font-size: 5em;
+    }
+
+    #head_main a img{
+        padding-left: 120%;
+        padding-top: 191%;
+        width: 300%;
+    }
+
+
+    .head h2{
+        font-size: 2.9em;
+    }
+    .head ul{
+        padding-left: 3%;
+    }
+
+    .head ul li a{
+        font-size: 2.7em;
+    }
+
+    .head ul li::marker{
+        font-size: 2.7em;
+    }
+
+    .body .sub_body h4 {
+        margin-top: 13%;
+    }
+
+    h3{
+        font-size: 2.8em;
+    }
+
+    h4{
+        font-size: 2.7em;
+    }
+
+    p{
+        font-size: 2.6em;
+    }
+}

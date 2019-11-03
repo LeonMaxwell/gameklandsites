@@ -24,7 +24,7 @@ SECRET_KEY = 'mc!pjzw+&f&fqd45njmf-y)z2k_i(fzk+k%aau(71x6)rf!vr%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','http://cf00b21e.ngrok.io']
+ALLOWED_HOSTS = ['*','http://ef1dd3f4.ngrok.io']
 
 # Application definition
 
@@ -43,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'wrapper.apps.WrapperConfig',
     'union.apps.UnionConfig',
-    'article.apps.ArticleConfig'
+    'article.apps.ArticleConfig',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,18 @@
+{% extends "union/union.html" %}
+
+{% block title %}
+<title>{{prTitle}} - Игровой клан Красный Лев</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="bg-cont">
+        <div class="block_list_article">
+            {% for foo in content %}
+                <div class="spoiler-wrap disabled">
+                    <div class="spoiler-head">{{ foo.name_content_about_klan|safe }}</div>
+                    <div class="spoiler-body">{{ foo.text_content_about_klan|safe }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

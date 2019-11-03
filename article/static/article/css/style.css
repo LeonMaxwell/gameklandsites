@@ -15,6 +15,11 @@ html {
     background-color: black;
     color: white;
     margin-top: -1%;
+    z-index: 5;
+}
+
+#head_main h1{
+    cursor: default;
 }
 
 #head_main a img{
@@ -26,11 +31,11 @@ html {
     width: 40%;
     height: 40%;
     float: right;
-    padding-top: 5%;
+    padding-top: 7%;
 }
 
-.head h2{
-    padding-top: 2%;
+.head p {
+    padding-top: 7%;
     padding-left: 2%;
 }
 
@@ -40,7 +45,6 @@ html {
 }
 
 .head ul{
-
     padding-left: 2%;
 }
 
@@ -59,11 +63,11 @@ hr{
 
 .body .sub_body h4{
     text-align: center;
-    margin-top: 7%;
+    margin-top: 11%;
 }
 
 .body .sub_body img{
-    width: 20%;
+    width: 28vw;
     height: 20%;
     float: right;
     margin-top: 1%;
@@ -88,4 +92,9 @@ hr{
 
 .gallery .image-gallery img{
     width: 90%;
+}
+
+.video-gallery #item iframe{
+    width: 40vw;
+    height: 60vh;
 }

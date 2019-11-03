@@ -8,8 +8,8 @@
      <div class="bg-cont">
         <div class="sec-game">
             <a href="{% url 'LibraryGames' %}">
-                <div class="roundGame"></div>
                 {% for foo in selectGame %}
+                    <div class="roundGame" style="background-image: url({{ foo.image_section.url }})"></div>
                     <h1>{{ foo.name_section }}</h1>
                     <p>{{ foo.about_section }}</p>
                 {% endfor %}
@@ -19,6 +19,7 @@
             <a href="{% url 'LibraryAboutKlan' %}">
                 <div class="roundKlan"></div>
                 {% for foo in selectKlan %}
+                    <div class="roundKlan" style="background-image: url({{ foo.image_section.url }})"></div>
                     <h1>{{ foo.name_section }}</h1>
                     <p>{{ foo.about_section }}</p>
                 {% endfor %}

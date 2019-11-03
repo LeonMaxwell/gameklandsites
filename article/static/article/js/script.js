@@ -9,4 +9,4 @@ $('.video-gallery').owlCarousel({
 $('.image-gallery').owlCarousel({
         items:3,
         lazyLoad:true,
-})
+});

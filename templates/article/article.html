@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Статья {{ name_article }} по игре {{ name_game }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'article/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'article/css/media.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'article/css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'article/css/owl.theme.default.min.css' %}" type="text/css">
 </head>
@@ -13,7 +16,7 @@
         <div class="head">
             {% for head in name_head %}
             <div id="head_main">
-                <a href="#" onclick="history.back();return false;" style="float: left"><img src="{% static 'article/img/iconfinder-icon.svg' %}"></a>
+                <a href="/library/games/{{ name_game }}" style="float: left"><img src="{% static 'article/img/iconfinder-icon.svg' %}"></a>
                 <h1 style="text-align: center">{{ head.name_article }}</h1>
             </div>
             <img src="{{ head.head_image.url }}" alt="{{ head.name_header_article }}_img" id="irg"/>
@@ -49,10 +52,12 @@
                  {% for foo in name_sub_body %}
                     {% if foo.body_article.name_body_article == id.name_body_article %}
                         <h4 id="{{ foo.sub_name_body_article }}">{{ foo.sub_name_body_article }}</h4>
-                        <img src="{{ foo.sub_body_image.url }}" alt="{{ foo.sub_name_body_article }}_img"/>
+                        {% if foo.sub_body_image %}
+                            <img src="{{ foo.sub_body_image.url }}" alt="{{ foo.sub_name_body_article }}_img"/>
+                        {% endif %}
                         {% for cont in name_content %}
                             {% if cont.sub_name_article.sub_name_body_article == foo.sub_name_body_article %}
-                                <p>{{ cont.text_content }}</p>
+                                {{ cont.text_content|safe }}
                             {% endif %}
                         {% endfor %}
                     {% endif %}
@@ -69,7 +74,7 @@
             <div class="video-gallery owl-carousel owl-theme">
             {% for video in video_gallery %}
                     <div id="item">
-                        <iframe width="500" height="300" src="https://www.youtube.com/embed/{{ video.code_video }}"
+                        <iframe src="https://www.youtube.com/embed/{{ video.code_video }}"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
